@@ -119,7 +119,8 @@ class LoginPage extends StatelessWidget {
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
             icon: Icon(Icons.alternate_email, color: Colors.deepPurple),
-            labelText: 'Contraseña'),
+            hintText: 'ejemplo@correo.com',
+            labelText: 'Correo electrónico'),
       ),
     );
   }
@@ -132,8 +133,7 @@ class LoginPage extends StatelessWidget {
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
             icon: Icon(Icons.lock_outline, color: Colors.deepPurple),
-            hintText: 'ejemplo@correo.com',
-            labelText: 'Correo electrónico'),
+            labelText: 'Contraseña'),
       ),
     );
   }
