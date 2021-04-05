@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
           LoginPage.routeName: (BuildContext context) => LoginPage(),
           HomePage.routeName: (BuildContext context) => HomePage(),
         },
+        theme: ThemeData(
+          primaryColor: Colors.deepPurple,
+        ),
       ),
     );
   }
