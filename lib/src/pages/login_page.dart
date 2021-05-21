@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:formvalidation/src/blocs/provider.dart';
 
 class LoginPage extends StatelessWidget {
@@ -105,7 +104,7 @@ class LoginPage extends StatelessWidget {
                 SizedBox(height: 30.0),
                 _crearPassword(bloc),
                 SizedBox(height: 30.0),
-                _crearBoton(),
+                _crearBoton(bloc),
               ],
             ),
           ),
@@ -159,23 +158,27 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _crearBoton() {
-    return ElevatedButton(
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-        child: Text(
-          'Ingresar',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-      style: ElevatedButton.styleFrom(
-        shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(5.0),
-        ),
-        elevation: 0.0,
-        primary: Colors.deepPurple,
-      ),
-      onPressed: () {},
-    );
+  Widget _crearBoton(LoginBloc bloc) {
+    return StreamBuilder(
+        stream: bloc.formValidStream,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          return ElevatedButton(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
+              child: Text(
+                'Ingresar',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(5.0),
+              ),
+              elevation: 0.0,
+              primary: Colors.deepPurple,
+            ),
+            onPressed: snapshot.hasData ? () {} : null,
+          );
+        });
   }
 }
